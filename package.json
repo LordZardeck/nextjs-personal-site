@@ -1,0 +1,23 @@
+{
+  "name": "storyblok-next",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "npx next dev --hostname 0.0.0.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.16",
+    "axios": "^0.20.0",
+    "highlight.js": "^11.3.1",
+    "marked": "^4.0.4",
+    "next": "^9.5.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "storyblok-js-client": "^3.1.0",
+    "storyblok-react": "^0.1.1"
+  }
+}
