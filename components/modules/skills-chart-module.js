@@ -68,6 +68,8 @@ export default function SkillsChartModule({profilePicture, skills, globalRotatio
 
             <style jsx>{`
               .skillsChart {
+                --viewportScale: 0.5;
+              
                 padding: 100px 20px;
                 max-width: 772px;
                 margin: 0 auto;
