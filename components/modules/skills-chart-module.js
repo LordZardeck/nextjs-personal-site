@@ -11,6 +11,7 @@ export default function SkillsChartModule({profilePicture, skills, globalRotatio
             }
 
             window.addEventListener('resize', onResize);
+            onResize();
 
             return () => window.removeEventListener('resize', onResize);
         },
