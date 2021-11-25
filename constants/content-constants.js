@@ -1,3 +1,3 @@
 export default {
-  storyblokToken: process.env.STORYBLOK_TOKEN,
+  storyblokToken: '1zeYrwXKCetI5QHY0fOvAgtt',
 };
