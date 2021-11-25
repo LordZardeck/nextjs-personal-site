@@ -12,8 +12,8 @@ export default function PageModule({body, metadata}) {
             <Head>
                 <meta name="author" content="Sean Templeton"/>
                 <meta property="og:locale" content="en"/>
-                <meta property="og:site_name" content={metadata?.description || "Sean Templeton: Web Developer"}/>
-                <title>{metadata?.description || "Sean Templeton: Web Developer"}</title>
+                <meta property="og:site_name" content={metadata?.title || "Sean Templeton: Web Developer"}/>
+                <title>{metadata?.title || "Sean Templeton: Web Developer"}</title>
                 <link rel="canonical" href={`https://templeton.io${router.asPath}`}/>
                 <meta property="og:url" content={`https://templeton.io${router.asPath}`}/>
                 <meta property="og:type" content="article"/>
