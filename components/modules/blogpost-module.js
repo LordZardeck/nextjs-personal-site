@@ -17,17 +17,22 @@ export default function BlogPostModule({body, featured_image, title, _uid, metad
     return (
         <>
             <Head>
-                <meta name="description" content={metadata.description}/>
-                <meta property="og:description" content={metadata.description}/>
                 <meta name="author" content="Sean Templeton"/>
                 <meta property="og:locale" content="en"/>
                 <meta property="og:site_name" content="Sean Templeton: Web Developer"/>
-                <meta property="og:title" content={metadata.title}/>
                 <link rel="canonical" href={`https://templeton.io/${router.asPath}`}/>
                 <meta property="og:url" content={`https://templeton.io/${router.asPath}`}/>
                 <meta property="og:type" content="article"/>
-                {featured_image && <meta property="og:image" content={featured_image} />}
-                <title>{metadata.title}</title>
+                {
+                    metadata &&
+                    <>
+                        <meta name="description" content={metadata.description}/>
+                        <meta property="og:description" content={metadata.description}/>
+                        <meta property="og:title" content={metadata.title}/>
+                        <title>{metadata.title}</title>
+                    </>
+                }
+                {featured_image && <meta property="og:image" content={featured_image}/>}
             </Head>
             <div className="page">
                 {featured_image && <img className="featuredImage" src={featured_image} alt="featured-image"/>}
