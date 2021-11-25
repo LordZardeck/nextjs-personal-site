@@ -5,14 +5,17 @@ import {useRouter} from "next/router";
 export default function PageModule({body, metadata}) {
     const router = useRouter();
 
+    console.log(metadata);
+
     return (
         <>
             <Head>
                 <meta name="author" content="Sean Templeton"/>
                 <meta property="og:locale" content="en"/>
-                <meta property="og:site_name" content="Sean Templeton: Web Developer"/>
-                <link rel="canonical" href={`https://templeton.io/${router.asPath}`}/>
-                <meta property="og:url" content={`https://templeton.io/${router.asPath}`}/>
+                <meta property="og:site_name" content={metadata?.description || "Sean Templeton: Web Developer"}/>
+                <title>{metadata?.description || "Sean Templeton: Web Developer"}</title>
+                <link rel="canonical" href={`https://templeton.io${router.asPath}`}/>
+                <meta property="og:url" content={`https://templeton.io${router.asPath}`}/>
                 <meta property="og:type" content="article"/>
                 {
                     metadata &&
@@ -20,7 +23,6 @@ export default function PageModule({body, metadata}) {
                         <meta name="description" content={metadata.description}/>
                         <meta property="og:description" content={metadata.description}/>
                         <meta property="og:title" content={metadata.title}/>
-                        <title>{metadata.title}</title>
                     </>
                 }
             </Head>

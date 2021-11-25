@@ -1,7 +1,7 @@
 export function withPageContent(getProps) {
     return async (ctx) => {
         const {params, preview} = ctx;
-        const [data, {default: storyblok}] = await Promise.all([getProps(ctx), await import("../lib/storyblok")]);
+        const [data, {default: storyblok}] = await Promise.all([getProps(ctx), await import('../lib/storyblok')]);
         const slug = (params?.slug || ["home"]).join('/');
 
         const urlsToAttempt = [
@@ -22,6 +22,7 @@ export function withPageContent(getProps) {
                     }
                 };
             } catch (err) {
+                console.log(err);
             }
         }
 
