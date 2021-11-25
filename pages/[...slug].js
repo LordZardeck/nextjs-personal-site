@@ -6,7 +6,7 @@ import {withDefaultProps} from "../hofs/with-default-props";
 import {useRouter} from "next/router";
 import LoadingSpinner from "../components/common/loading-spinner";
 import Error from "../components/common/error";
-import {Head} from "next/document";
+import Head from "next/head";
 
 export default function AnySlug(props) {
     let {preview, page, pageInfo, settings} = props;
