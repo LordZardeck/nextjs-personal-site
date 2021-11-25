@@ -170,12 +170,11 @@ function PostListItem({title, summary, postedAt, slug}) {
 }
 
 export default function PostListModule({count, startDate, endDate}) {
-    console.log('List Count', count);
     const [posts] = usePostList(count, startDate, endDate);
 
     return (
         <>
-            {posts.map(({name: title, first_published_at: postedAt, content: {summary}, full_slug: slug}) =>
+            {posts.map(({name: title, first_published_at: postedAt, content: {summary}, slug}) =>
                 <PostListItem key={slug} {...{title, summary, postedAt, slug}}/>)}
         </>
     );
