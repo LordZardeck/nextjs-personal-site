@@ -62,6 +62,10 @@ export default function TextModule({content}) {
                 margin: 90px 0 40px;
               }
 
+              .text :global(h3) {
+                color: #F5D669;
+              }
+
               .text :global(h2:after) {
                 display: block;
                 content: "";
@@ -91,6 +95,10 @@ export default function TextModule({content}) {
               .text :global(img) {
                 max-width: 100%;
                 margin: 0 auto;
+              }
+
+              .text :global(a) {
+                color: #F5D669;
               }
 
               @media (max-width: 900px) {

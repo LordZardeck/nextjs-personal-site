@@ -13,10 +13,10 @@ function usePostList(count, startDate, endDate) {
             (async () => {
                 setIsPending(true);
 
-                const response = await storyblok.getList('blog', count, startDate, endDate);
+                const {data: {stories}} = await storyblok.getList('blog', count, startDate, endDate);
 
-                if (response instanceof Array) {
-                    setPosts(response);
+                if (stories instanceof Array) {
+                    setPosts(stories);
                 }
 
                 setIsPending(false);
@@ -57,6 +57,7 @@ function PostListItem({title, summary, postedAt, slug}) {
                 width: 100%;
                 display: flex;
                 cursor: pointer;
+                margin-bottom: 10px;
               }
 
               .details {
@@ -169,6 +170,7 @@ function PostListItem({title, summary, postedAt, slug}) {
 }
 
 export default function PostListModule({count, startDate, endDate}) {
+    console.log('List Count', count);
     const [posts] = usePostList(count, startDate, endDate);
 
     return (

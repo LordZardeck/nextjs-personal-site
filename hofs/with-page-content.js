@@ -1,29 +1,38 @@
 export function withPageContent(getProps) {
-  return async (ctx) => {
-    let data = await getProps(ctx);
+    return async (ctx) => {
+        const {params, preview} = ctx;
+        const [data, {default: storyblok}] = await Promise.all([getProps(ctx), await import("../lib/storyblok")]);
+        const slug = (params?.slug || ["home"]).join('/');
 
-    let { params, preview } = ctx;
+        const urlsToAttempt = [
+            slug,
+            'blog/' + slug
+        ];
 
-    let page = null;
-    let pageInfo = null;
-    let storyblok = (await import("../lib/storyblok")).default;
+        for (let urlToAttempt of urlsToAttempt) {
+            try {
+                const response = await storyblok.get('cdn/stories/' + urlToAttempt, {}, preview);
 
-    let slug = params?.slug || ["home"];
+                return {
+                    ...data,
+                    props: {
+                        ...data.props,
+                        page: response?.data?.story?.content || {},
+                        pageInfo: response?.data?.story || {},
+                    }
+                };
+            } catch (err) {
+            }
+        }
 
-    try {
-      let resp = await storyblok.get("cdn/stories/" + slug.join('/'), {}, preview);
-      pageInfo = resp?.data?.story || {}
-      page = resp?.data?.story?.content || {};
-    } catch (err) {
-
-      data.props.error = {
-        statusCode: 404,
-      };
-    }
-
-    data.props.page = page;
-    data.props.pageInfo = pageInfo;
-
-    return data;
-  };
+        return {
+            ...data,
+            props: {
+                ...data.props,
+                error: {
+                    statusCode: 404
+                }
+            }
+        }
+    };
 }

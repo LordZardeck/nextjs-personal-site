@@ -7,7 +7,7 @@ export function withPageSettings(getProps) {
     let storyblok = (await import("../lib/storyblok")).default;
 
     try {
-      let resp = await storyblok.get("cdn/stories/page-settings", {}, preview);
+      let resp = await storyblok.get("cdn/stories/settings", {}, preview);
       data.props.settings = resp.data.story.content;
     } catch (err) {}
 
