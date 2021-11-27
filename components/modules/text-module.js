@@ -53,6 +53,7 @@ export default function TextModule({content}) {
                 margin: 35px 0;
                 letter-spacing: 0.7px;
                 line-height: 1.4;
+                word-break: break-word;
               }
 
               .text :global(h2) {

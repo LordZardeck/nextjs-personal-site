@@ -85,6 +85,7 @@ export default function BlogPostModule({body, featured_image, title, short_title
               .content {
                 order: 1;
                 flex: 1 1 100%;
+                width: 100%;
               }
 
               .title {
@@ -179,8 +180,6 @@ export default function BlogPostModule({body, featured_image, title, short_title
                 top: 60px;
               }
 
-              }
-
               .languages {
                 margin: 0;
                 padding: 0;
@@ -226,8 +225,12 @@ export default function BlogPostModule({body, featured_image, title, short_title
                   margin-bottom: 30px;
                 }
 
-                h1 {
+                h1.articleTitle {
                   font-size: 40px;
+                }
+
+                .title, .social {
+                  display: none;
                 }
               }
             `}</style>
