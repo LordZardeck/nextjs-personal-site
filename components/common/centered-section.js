@@ -1,7 +1,7 @@
-export default function CenteredSection({header, headerAlignment, children}) {
+export default function CenteredSection({header, headerAlignment, children, noPadding}) {
     return (
         <>
-            <div className="section">
+            <div className={`section ${noPadding && 'noPadding'}`}>
                 {header && <h2 className={`headerAlign${headerAlignment}`}>{header}</h2>}
                 {children}
             </div>
@@ -12,6 +12,10 @@ export default function CenteredSection({header, headerAlignment, children}) {
                 max-width: 812px;
                 margin: 0 auto;
                 width: 100%;
+              }
+
+              .section.noPadding {
+                padding: 0;
               }
 
               .section h2 {
@@ -53,7 +57,7 @@ export default function CenteredSection({header, headerAlignment, children}) {
                   margin-bottom: 20px;
                   font-size: 1.4em;
                 }
-                
+
                 .section h2:after {
                   width: 105px;
                   height: 4px;

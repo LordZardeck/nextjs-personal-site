@@ -5,8 +5,6 @@ import {useRouter} from "next/router";
 export default function PageModule({body, metadata}) {
     const router = useRouter();
 
-    console.log(metadata);
-
     return (
         <>
             <Head>
