@@ -85,7 +85,7 @@ export default function BlogPostModule({body, featured_image, title, short_title
               .content {
                 order: 1;
                 flex: 1 1 100%;
-                width: 100%;
+                width: calc(100% - 180px);
               }
 
               .title {
