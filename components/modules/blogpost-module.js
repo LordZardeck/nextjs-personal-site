@@ -4,7 +4,7 @@ import {useRouter} from "next/router";
 import Head from "next/head";
 import CenteredSection from "../common/centered-section";
 
-export default function BlogPostModule({body, featured_image, title, short_title, _uid, metadata, languages = []}) {
+export default function BlogPostModule({body, featured_image, title, _uid, metadata, languages = []}) {
     const router = useRouter();
 
     const disqusShortname = "seantempletonwebdeveloper";
@@ -35,16 +35,7 @@ export default function BlogPostModule({body, featured_image, title, short_title
                 {featured_image && <meta property="og:image" content={featured_image}/>}
             </Head>
             <div className="page">
-                {
-                    languages.length > 0 &&
-                    <ul className="languages">
-                        {languages.map(language => <li key={language} className={language}>&nbsp;</li>)}
-                    </ul>
-                }
                 <div className={`wrapper ${languages.length > 0 && 'hasLanguages'}`}>
-                    <div className="title">
-                        <span>{short_title || title}</span>
-                    </div>
                     <div className="content">
                         {featured_image && <img className="featuredImage" src={featured_image} alt="featured-image"/>}
                         <h1 className="articleTitle">{title}</h1>
@@ -55,9 +46,6 @@ export default function BlogPostModule({body, featured_image, title, short_title
                                 config={disqusConfig}
                             />
                         </CenteredSection>
-                    </div>
-                    <div className="social">
-                        <ul></ul>
                     </div>
                 </div>
             </div>

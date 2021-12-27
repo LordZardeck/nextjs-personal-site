@@ -1,6 +1,8 @@
-export function withPreviewState(getProps) {
+import {GetStaticProps} from 'next';
+
+export function withPreviewState(getProps: GetStaticProps): GetStaticProps {
   return async (ctx) => {
-    let isDev = process.env.NODE_ENV == "development";
+    let isDev = process.env.NODE_ENV === "development";
 
     ctx.preview = ctx.preview || isDev;
 

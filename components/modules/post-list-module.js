@@ -4,8 +4,14 @@ import Link from 'next/link';
 import {faArrowRight, faClock} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
-function usePostList(count, startDate, endDate) {
-    const [posts, setPosts] = useState([]);
+export async function getPostListContent(count, startDate, endDate) {
+    const {data: {stories}} = await storyblok.getList('blog', count, startDate, endDate);
+
+    return stories;
+}
+
+function usePostList(count, startDate, endDate, preloaded = []) {
+    const [posts, setPosts] = useState(preloaded);
     const [isPending, setIsPending] = useState(false);
 
     useEffect(
@@ -13,7 +19,7 @@ function usePostList(count, startDate, endDate) {
             (async () => {
                 setIsPending(true);
 
-                const {data: {stories}} = await storyblok.getList('blog', count, startDate, endDate);
+                const stories = await getPostListContent(count, startDate, endDate);
 
                 if (stories instanceof Array) {
                     setPosts(stories);
@@ -169,8 +175,8 @@ function PostListItem({title, summary, postedAt, slug}) {
     );
 }
 
-export default function PostListModule({count, startDate, endDate}) {
-    const [posts] = usePostList(count, startDate, endDate);
+export default function PostListModule({count, startDate, endDate, preloaded}) {
+    const [posts] = usePostList(count, startDate, endDate, preloaded);
 
     return (
         <>

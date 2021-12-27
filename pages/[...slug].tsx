@@ -6,9 +6,10 @@ import {withDefaultProps} from "../hofs/with-default-props";
 import {useRouter} from "next/router";
 import LoadingSpinner from "../components/common/loading-spinner";
 import Error from "../components/common/error";
+import {GetStaticPaths, GetStaticProps} from 'next';
 
 export default function AnySlug(props) {
-    let {preview, page, pageInfo, settings} = props;
+    let {preview, page, pageInfo} = props;
 
     let content = useEditableContent(page, preview);
     let router = useRouter();
@@ -31,14 +32,14 @@ export default function AnySlug(props) {
     );
 }
 
-export const getStaticProps = withDefaultProps((ctx) => {
+export const getStaticProps: GetStaticProps = withDefaultProps(() => {
     return {
         props: {},
         revalidate: 60,
     };
 });
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
     return {
         paths: [],
         fallback: true,
