@@ -1,8 +1,11 @@
+'use client'
+
 import {
   StyledNavigation,
   StyledNavList,
   StyledNavListLink,
 } from '@/app/layout/Navigation.styled'
+import { usePathname } from 'next/navigation'
 
 type NavigationLink = {
   _uid: string
@@ -14,16 +17,17 @@ type NavigationLink = {
 
 type NavigationProps = {
   links: NavigationLink[]
-  activePath: string
 }
 
-export function Navigation({ links, activePath }: NavigationProps) {
+export function Navigation({ links }: NavigationProps) {
+  const pathname = usePathname()
+
   return (
     <StyledNavigation>
       <StyledNavList>
         {links.map(({ _uid, name, link }) => (
           <li key={_uid}>
-            <StyledNavListLink href={link.url} active={activePath === link.url}>
+            <StyledNavListLink href={link.url} active={pathname === link.url}>
               {name}
             </StyledNavListLink>
           </li>

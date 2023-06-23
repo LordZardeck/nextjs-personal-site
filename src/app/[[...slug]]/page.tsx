@@ -1,4 +1,3 @@
-import { StyledMain } from '@/app/[[...slug]]/page.styled'
 import { fetchPageData } from '@/storyblock/api'
 import StoryblockStory from '@storyblok/react/story'
 

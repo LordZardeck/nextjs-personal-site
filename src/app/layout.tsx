@@ -40,10 +40,7 @@ export default async function RootLayout({
         <StyledBody
           className={[ibmPlexSans.variable, ibmPlexMono.variable].join(' ')}
         >
-          <Navigation
-            links={pageSettings.main_navigation ?? []}
-            activePath="/"
-          />
+          <Navigation links={pageSettings.main_navigation ?? []} />
           {children}
         </StyledBody>
       </StoryblokProvider>

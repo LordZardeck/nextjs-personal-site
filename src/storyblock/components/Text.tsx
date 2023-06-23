@@ -5,6 +5,7 @@ import hljs from 'highlight.js'
 import { storyblokEditable } from '@storyblok/react/rsc'
 import { BlokProps, Component } from '@/storyblock/components/types'
 import styled from '@emotion/styled'
+import 'highlight.js/styles/codepen-embed.css'
 
 const escapeMap = {
   '&': '&amp;',
@@ -61,6 +62,7 @@ const StyledText = styled.div`
     text-transform: uppercase;
     border-bottom: 2px solid #69f5ab;
     margin: 90px 0 40px;
+    font-weight: 500;
 
     &:after {
       display: block;

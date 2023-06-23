@@ -5,6 +5,7 @@ import { BlokProps, Component } from '@/storyblock/components/types'
 import { ChildComponents } from '@/storyblock/components/ChildComponents'
 import styled from '@emotion/styled'
 import tw from 'twin.macro'
+import { CenteredContent } from '@/components'
 
 type CenteredSectionBlok = Component<
   {
@@ -16,15 +17,6 @@ type CenteredSectionBlok = Component<
   },
   'centeredSectionContent'
 >
-
-type StyledSectionProps = {
-  noPadding?: boolean
-}
-
-const StyledSection = styled.div<StyledSectionProps>([
-  tw`py-5 px-5 max-w-4xl my-0 mx-auto w-full md:py-12`,
-  ({ noPadding }) => noPadding && tw`py-0`,
-])
 
 type StyledSectionHeaderProps = {
   alignment: 'Left' | 'Center' | 'Right'
@@ -50,16 +42,13 @@ export function CenteredSectionContent({
   blok,
 }: BlokProps<CenteredSectionBlok>) {
   return (
-    <StyledSection
-      className={`section ${blok.noPadding && 'noPadding'}`}
-      {...storyblokEditable(blok)}
-    >
+    <CenteredContent {...storyblokEditable(blok)}>
       {blok.header && (
         <StyledSectionHeader alignment={blok.headerAlignment}>
           {blok.header}
         </StyledSectionHeader>
       )}
       <ChildComponents bloks={blok.content} />
-    </StyledSection>
+    </CenteredContent>
   )
 }
