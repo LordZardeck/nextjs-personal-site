@@ -6,6 +6,7 @@ import { storyblokEditable } from '@storyblok/react/rsc'
 import { BlokProps, Component } from '@/storyblock/components/types'
 import styled from '@emotion/styled'
 import 'highlight.js/styles/codepen-embed.css'
+import tw from 'twin.macro'
 
 const escapeMap = {
   '&': '&amp;',
@@ -76,6 +77,7 @@ const StyledText = styled.div`
   }
 
   h3 {
+    ${tw`my-4`}
     color: #f5d669;
   }
 
