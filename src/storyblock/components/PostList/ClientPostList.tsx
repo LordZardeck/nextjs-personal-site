@@ -23,8 +23,6 @@ export function usePostList(
     ;(async () => {
       setIsPending(true)
 
-      console.log('requesting client posts')
-
       const stories = await loader(count, startDate, endDate)
 
       if (stories instanceof Array) {
@@ -43,18 +41,21 @@ export type PostList = Component<
   'postList'
 >
 
-type PostListProps = BlokProps<PostList> & { preloaded: Post[] }
+type PostListProps = BlokProps<PostList> & { preloaded?: Post[] }
 
-export function ClientPostList({ preloaded }: PostListProps) {
+export function ClientPostList({ blok, preloaded }: PostListProps) {
+  const { startDate, endDate, count } = blok
+  const [posts] = usePostList(Number(count), startDate, endDate, preloaded)
+
   return (
     <>
-      {preloaded.map(
+      {posts.map(
         ({
-          name: title,
-          first_published_at: postedAt,
-          content: { summary },
-          slug,
-        }) => (
+           name: title,
+           first_published_at: postedAt,
+           content: { summary },
+           slug,
+         }) => (
           <PostListItem key={slug} {...{ title, summary, postedAt, slug }} />
         ),
       )}

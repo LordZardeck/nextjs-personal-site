@@ -8,7 +8,6 @@ module.exports = function withTwin(nextConfig) {
     ...nextConfig,
     webpack(config, options) {
       const { dev, isServer } = options
-      config.optimization.minimizer = []
       config.module = config.module || {}
       config.module.rules = config.module.rules || []
 
