@@ -10,6 +10,7 @@ import { DiscussionEmbed } from 'disqus-react'
 type PageBlok = Component<
   {
     body: Component<unknown>[]
+    languages?: string[]
   },
   'page'
 >
@@ -36,7 +37,7 @@ export function BlogPost({ blok }: BlokProps<PageBlok>) {
 
   return (
     <StyledMain {...storyblokEditable(blok)}>
-      <div className={`${blok.languages.length > 0 && 'hasLanguages'}`}>
+      <div className={`${(blok.languages?.length ?? 0) > 0 && 'hasLanguages'}`}>
         {blok.featured_image && (
           <img
             className="featuredImage"

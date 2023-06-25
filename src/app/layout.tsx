@@ -24,6 +24,12 @@ const ibmPlexSans = IBM_Plex_Sans({
   weight: ['400', '500'],
 })
 
+export const metadata = {
+  openGraph: {
+    siteName: 'Sean Templeton: Software Engineer',
+  },
+}
+
 export default async function RootLayout({
   children,
 }: {

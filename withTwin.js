@@ -12,7 +12,8 @@ module.exports = function withTwin(nextConfig) {
       config.module.rules = config.module.rules || []
 
       config.module.rules.push({
-        test: /\.(tsx|ts)$/,
+        // Don't process pages and layouts with babel macros as they need to be server-only components
+        test: /(?<!page|layout)\.(tsx|ts)$/,
         include: includedDirs,
         use: [
           options.defaultLoaders.babel,
