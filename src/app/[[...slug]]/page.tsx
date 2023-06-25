@@ -2,6 +2,7 @@ import { fetchPageData } from '@/storyblock/api'
 import StoryblockStory from '@storyblok/react/story'
 import { getStoryblokApi } from '@storyblok/react/rsc'
 import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 
 type HomeProps = {
   params: {
@@ -70,7 +71,11 @@ export async function generateStaticParams() {
 }
 
 export default async function StoryblokPage({ params }: HomeProps) {
-  const story = await fetchPageData(params.slug ?? [])
+  try {
+    const story = await fetchPageData(params.slug ?? [])
 
-  return <StoryblockStory story={story} />
+    return <StoryblockStory story={story} />
+  } catch (e) {
+    return notFound()
+  }
 }

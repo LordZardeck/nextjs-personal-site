@@ -1,4 +1,3 @@
-import { StyledBody } from '@/app/layout/layout.styled'
 import StoryblokProvider from '@/storyblock/Provider'
 import { apiPlugin, storyblokInit } from '@storyblok/react/rsc'
 import { fetchPageSettings } from '@/storyblock/api'
@@ -12,20 +11,6 @@ config.autoAddCss = false
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_TOKEN,
   use: [apiPlugin],
-})
-
-import { IBM_Plex_Mono, IBM_Plex_Sans } from 'next/font/google'
-
-const ibmPlexMono = IBM_Plex_Mono({
-  variable: '--font-plex-mono',
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
-})
-const ibmPlexSans = IBM_Plex_Sans({
-  variable: '--font-plex-sans',
-  subsets: ['latin'],
-  style: ['normal', 'italic'],
-  weight: ['400', '500'],
 })
 
 export const metadata = {
@@ -47,12 +32,10 @@ export default async function RootLayout({
         <GlobalStyles />
       </head>
       <StoryblokProvider>
-        <StyledBody
-          className={[ibmPlexSans.variable, ibmPlexMono.variable].join(' ')}
-        >
+        <body>
           <Navigation links={pageSettings.main_navigation ?? []} />
           {children}
-        </StyledBody>
+        </body>
       </StoryblokProvider>
     </html>
   )
