@@ -37,20 +37,18 @@ export function BlogPost({ blok }: BlokProps<PageBlok>) {
 
   return (
     <StyledMain {...storyblokEditable(blok)}>
-      <div className={`${(blok.languages?.length ?? 0) > 0 && 'hasLanguages'}`}>
-        {blok.featured_image && (
-          <img
-            className="featuredImage"
-            src={blok.featured_image}
-            alt="featured-image"
-          />
-        )}
-        <StyledArticleTitle>{blok.short_title}</StyledArticleTitle>
-        <ChildComponents bloks={blok.body} />
-        <CenteredContent>
-          <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
-        </CenteredContent>
-      </div>
+      {blok.featured_image && (
+        <img
+          className="featuredImage"
+          src={blok.featured_image}
+          alt="featured-image"
+        />
+      )}
+      <StyledArticleTitle>{blok.short_title}</StyledArticleTitle>
+      <ChildComponents bloks={blok.body} />
+      <CenteredContent>
+        <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
+      </CenteredContent>
     </StyledMain>
   )
 }
