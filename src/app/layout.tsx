@@ -4,6 +4,10 @@ import { apiPlugin, storyblokInit } from '@storyblok/react/rsc'
 import { fetchPageSettings } from '@/storyblock/api'
 import { Navigation } from '@/app/layout/Navigation'
 import GlobalStyles from '@/app/layout/GlobalStyles'
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+
+config.autoAddCss = false
 
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_TOKEN,
