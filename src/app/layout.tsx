@@ -5,6 +5,8 @@ import { Navigation } from '@/app/layout/Navigation'
 import GlobalStyles from '@/app/layout/GlobalStyles'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
+import Script from 'next/script'
+import React from 'react'
 
 config.autoAddCss = false
 
@@ -30,6 +32,14 @@ export default async function RootLayout({
     <html lang="en">
       <head>
         <GlobalStyles />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-3C48B6PE0R" />
+        <Script id="google-analytics">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-3C48B6PE0R');
+        `}</Script>
       </head>
       <StoryblokProvider>
         <body>
