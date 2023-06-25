@@ -41,7 +41,7 @@ renderer.code = (code, language) => {
 }
 
 // Set the renderer to marked.
-marked.setOptions({ renderer })
+marked.setOptions({ renderer, headerIds: false, mangle: false })
 
 type TextBlok = Component<{ content: string }, 'text'>
 
