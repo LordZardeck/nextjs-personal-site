@@ -16,15 +16,15 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <GlobalStyles />
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-3C48B6PE0R" />
-        <Script id="google-analytics">{`
+      </Head>
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-3C48B6PE0R" />
+      <Script id="google-analytics">{`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
         
           gtag('config', 'G-3C48B6PE0R');
         `}</Script>
-      </Head>
       <Navigation links={pageProps.links ?? []} />
       <Component {...pageProps} />
     </>
