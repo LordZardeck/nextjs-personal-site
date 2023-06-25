@@ -1,10 +1,17 @@
 import { getStoryblokApi } from '@storyblok/react/rsc'
 
+type Post = {
+  name: string
+  first_published_at: string
+  content: { summary: string }
+  slug: string
+}
+
 export async function loader(
   count: number,
   startDate: string,
   endDate: string,
-) {
+): Promise<Post[]> {
   const storyblokApi = getStoryblokApi()
 
   const {
