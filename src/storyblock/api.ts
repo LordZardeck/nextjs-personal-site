@@ -8,7 +8,7 @@ export async function fetchPageData(slug: string[], preview?: string) {
       data: { story },
     } = await storyblokApi.get(
       'cdn/stories/' + [...(slug.length === 0 ? ['home'] : slug)].join('/'),
-      { version: 'published' },
+      { version: process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'published' },
     )
 
     return story
@@ -19,7 +19,7 @@ export async function fetchPageData(slug: string[], preview?: string) {
       } = await storyblokApi.get(
         'cdn/stories/blog/' +
           [...(slug.length === 0 ? ['home'] : slug)].join('/'),
-        { version: 'published' },
+        { version: process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'published' },
       )
 
       return story
@@ -40,7 +40,7 @@ export async function fetchList(slug: string, start?: string, end?: string) {
     ...(end && { first_published_at_lt: end }),
     starts_with: slug,
     is_startpage: false,
-    version: 'published',
+    version: process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'published',
   })
 
   return stories

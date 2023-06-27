@@ -22,7 +22,7 @@ export async function loader(
     ...(endDate && { first_published_at_lt: endDate }),
     starts_with: 'blog',
     is_startpage: false,
-    version: 'published',
+    version: process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'published',
     per_page: count,
   })
 
