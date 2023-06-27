@@ -9,7 +9,7 @@ import { DiscussionEmbed } from 'disqus-react'
 
 type PageBlok = Component<
   {
-    body: Component<unknown>[]
+    body?: Component<unknown>[]
     languages?: string[]
   },
   'page'
@@ -45,7 +45,7 @@ export function BlogPost({ blok }: BlokProps<PageBlok>) {
         />
       )}
       <StyledArticleTitle>{blok.short_title}</StyledArticleTitle>
-      <ChildComponents bloks={blok.body} />
+      <ChildComponents bloks={blok.body ?? []} />
       <CenteredContent>
         <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
       </CenteredContent>
