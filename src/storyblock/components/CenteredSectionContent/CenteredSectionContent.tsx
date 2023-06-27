@@ -1,7 +1,7 @@
 import { storyblokEditable } from '@storyblok/react/rsc'
 import { BlokProps, Component } from '@/storyblock/components/types'
 import { ChildComponents } from '@/storyblock/components/ChildComponents'
-import { CenteredContent } from '@/components'
+import { Section } from '@/components'
 import { StyledSectionHeader } from '@/storyblock/components/CenteredSectionContent/Styled'
 
 type CenteredSectionBlok = Component<
@@ -19,13 +19,13 @@ export function CenteredSectionContent({
   blok,
 }: BlokProps<CenteredSectionBlok>) {
   return (
-    <CenteredContent {...storyblokEditable(blok)}>
+    <Section.Centered {...storyblokEditable(blok)}>
       {blok.header && (
         <StyledSectionHeader alignment={blok.headerAlignment}>
           {blok.header}
         </StyledSectionHeader>
       )}
       <ChildComponents bloks={blok.content} />
-    </CenteredContent>
+    </Section.Centered>
   )
 }

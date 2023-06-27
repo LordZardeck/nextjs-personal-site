@@ -10,6 +10,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        brands: {
+          js: '#f7df1e'
+        },
         gray: {
           50: '#f6f6f7',
           100: '#e1e3e6',
@@ -36,7 +39,19 @@ module.exports = {
           900: '#105734',
           950: '#02311b',
         },
-        secondary: '#f5d669',
+        secondary: {
+          '50': '#fefaec',
+          '100': '#fbf2ca',
+          '200': '#f8e48f',
+          '300': '#f5d669',
+          '400': '#f1bd2e',
+          '500': '#ea9e16',
+          '600': '#cf7810',
+          '700': '#ac5611',
+          '800': '#8c4414',
+          '900': '#733714',
+          '950': '#421c06',
+        },
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

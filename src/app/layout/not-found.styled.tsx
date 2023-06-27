@@ -8,7 +8,7 @@ export const StyledContainer = styled.div([
   tw`flex flex-col flex-1 gap-12 items-center justify-center text-white max-w-3xl mx-auto px-4 text-center`,
 ])
 
-export const StyledMessage = styled.p([tw`text-4xl text-secondary font-display`])
+export const StyledMessage = styled.p([tw`text-4xl text-secondary-300 font-display`])
 
 const stackKeyframes = keyframes`
   0% {

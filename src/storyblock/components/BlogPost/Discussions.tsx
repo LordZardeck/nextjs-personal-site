@@ -1,5 +1,5 @@
 import { usePathname } from 'next/navigation'
-import { CenteredContent } from '@/components'
+import { Section } from '@/components'
 import { DiscussionEmbed } from 'disqus-react'
 import { BlokProps } from '@/storyblock/components/types'
 import { PageBlok } from './types'
@@ -15,8 +15,8 @@ export function Discussions({ blok }: BlokProps<PageBlok>) {
   }
 
   return (
-    <CenteredContent>
+    <Section.Centered>
       <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
-    </CenteredContent>
+    </Section.Centered>
   )
 }
