@@ -17,7 +17,7 @@ async function getLinks(): Promise<any[]> {
   const storyblokApi = getStoryblokApi()
 
   const { data } = await storyblokApi.get('cdn/links', {
-    version: 'published',
+    version: process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'published',
   })
 
   return data ? data.links : null
@@ -65,7 +65,9 @@ export async function generateStaticParams() {
   return Object.values(posts)
     .filter(
       ({ slug, published, is_folder }) =>
-        slug !== 'settings' && published && !is_folder,
+        slug !== 'settings' &&
+        (published || process.env.NEXT_PUBLIC_STORYBLOK_VERSION === 'draft') &&
+        !is_folder,
     )
     .map(({ real_path }) => ({ slug: real_path.split('/').filter(Boolean) }))
 }

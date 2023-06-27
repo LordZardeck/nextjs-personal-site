@@ -1,14 +1,7 @@
 import { useEffect, useState } from 'react'
 import { BlokProps, Component } from '@/storyblock/components/types'
 import { PostListItem } from './PostListItem'
-import { loader } from './loader'
-
-type Post = {
-  name: string
-  first_published_at: string
-  content: { summary: string }
-  slug: string
-}
+import { loader, Post } from './loader'
 
 export function usePostList(
   count: number,
@@ -37,7 +30,7 @@ export function usePostList(
 }
 
 export type PostList = Component<
-  { count: string; endData: string; startDate: string },
+  { count: string; endDate: string; startDate: string },
   'postList'
 >
 
@@ -51,11 +44,11 @@ export function ClientPostList({ blok, preloaded }: PostListProps) {
     <>
       {posts.map(
         ({
-           name: title,
-           first_published_at: postedAt,
-           content: { summary },
-           slug,
-         }) => (
+          name: title,
+          first_published_at: postedAt,
+          content: { summary },
+          slug,
+        }) => (
           <PostListItem key={slug} {...{ title, summary, postedAt, slug }} />
         ),
       )}

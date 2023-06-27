@@ -1,6 +1,6 @@
 import { getStoryblokApi } from '@storyblok/react/rsc'
 
-type Post = {
+export type Post = {
   name: string
   first_published_at: string
   content: { summary: string }
@@ -22,7 +22,7 @@ export async function loader(
     ...(endDate && { first_published_at_lt: endDate }),
     starts_with: 'blog',
     is_startpage: false,
-    version: 'published',
+    version: process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'published',
     per_page: count,
   })
 

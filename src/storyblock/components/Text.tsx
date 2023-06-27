@@ -33,7 +33,7 @@ renderer.code = (code, language) => {
   // highlight.js escapes HTML in the code, but we need to escape by ourselves
   // when we don't use it.
   const highlighted = validLang
-    ? hljs.highlight(language, code).value
+    ? hljs.highlight(code, { language }).value
     : escapeForHTML(code)
 
   // Render the highlighted code with `hljs` class.

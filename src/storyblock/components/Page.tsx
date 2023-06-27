@@ -5,7 +5,7 @@ import { ChildComponents } from '@/storyblock/components/ChildComponents'
 
 type PageBlok = Component<
   {
-    body: Component<unknown>[]
+    body?: Component<unknown>[]
   },
   'page'
 >
@@ -13,7 +13,7 @@ type PageBlok = Component<
 export function Page({ blok }: BlokProps<PageBlok>) {
   return (
     <StyledMain {...storyblokEditable(blok)}>
-      <ChildComponents bloks={blok.body} />
+      <ChildComponents bloks={blok.body ?? []} />
     </StyledMain>
   )
 }
