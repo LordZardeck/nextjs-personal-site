@@ -28,6 +28,8 @@ export async function generateMetadata({
 }: HomeProps): Promise<Metadata> {
   const story = await fetchPageData(params.slug ?? [])
 
+  if (!story) return {}
+
   let metadata: Metadata = {
     openGraph: {},
   }
@@ -73,11 +75,9 @@ export async function generateStaticParams() {
 }
 
 export default async function StoryblokPage({ params }: HomeProps) {
-  try {
-    const story = await fetchPageData(params.slug ?? [])
+  const story = await fetchPageData(params.slug ?? [])
 
-    return <StoryblockStory story={story} />
-  } catch (e) {
-    return notFound()
-  }
+  if (!story) return notFound()
+
+  return <StoryblockStory story={story} />
 }

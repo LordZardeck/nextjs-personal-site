@@ -14,18 +14,22 @@ export async function fetchPageData(slug: string[], preview?: string) {
     return story
   } catch (e) {
     if (e && typeof e === 'object' && 'status' in e && e.status === 404) {
-      const {
-        data: { story },
-      } = await storyblokApi.get(
-        'cdn/stories/blog/' +
-          [...(slug.length === 0 ? ['home'] : slug)].join('/'),
-        { version: process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'published' },
-      )
+      try {
+        const {
+          data: { story },
+        } = await storyblokApi.get(
+          'cdn/stories/blog/' +
+            [...(slug.length === 0 ? ['home'] : slug)].join('/'),
+          { version: process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'published' },
+        )
 
-      return story
+        return story
+      } catch {
+        return null
+      }
     }
 
-    throw e
+    return null
   }
 }
 
