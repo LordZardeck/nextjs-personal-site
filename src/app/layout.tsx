@@ -51,4 +51,4 @@ export default async function RootLayout({
   )
 }
 
-export const dynamicParams = false
+export const dynamicParams = process.env.NEXT_PUBLIC_STORYBLOK_VERSION === 'draft'
