@@ -23,7 +23,10 @@ export function PostListItem({
 }: PostListItemProps) {
   return (
     <>
-      <Link href={'/' + slug} prefetch={false}>
+      <Link
+        href={'/' + slug}
+        prefetch={process.env.NEXT_PUBLIC_STORYBLOK_VERSION !== 'draft'}
+      >
         <StyledPostListItem>
           <StyledPostDetails>
             <h3>{title}</h3>
