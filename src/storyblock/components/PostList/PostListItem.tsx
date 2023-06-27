@@ -23,7 +23,7 @@ export function PostListItem({
 }: PostListItemProps) {
   return (
     <>
-      <Link href={'/' + slug}>
+      <Link href={'/' + slug} prefetch={false}>
         <StyledPostListItem>
           <StyledPostDetails>
             <h3>{title}</h3>

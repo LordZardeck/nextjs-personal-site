@@ -45,7 +45,7 @@ const glitchKeyframes = keyframes`
 `
 
 export const StyledGlitchHeader = styled.h1`
-  ${tw`text-primary text-9xl`}
+  ${tw`text-primary-300 text-9xl`}
   --stacks: 3;
   display: grid;
   grid-template-columns: 1fr;

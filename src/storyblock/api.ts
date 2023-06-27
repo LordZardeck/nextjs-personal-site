@@ -53,7 +53,9 @@ export async function fetchPageSettings() {
     data: {
       story: { content },
     },
-  } = await storyblokApi.get('cdn/stories/settings', {})
+  } = await storyblokApi.get('cdn/stories/settings', {
+    version: process.env.NEXT_PUBLIC_STORYBLOK_VERSION ?? 'published',
+  })
 
   return content
 }

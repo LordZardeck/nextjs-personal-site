@@ -5,11 +5,11 @@ import tw from 'twin.macro'
 import Link from 'next/link'
 
 export const StyledNavigation = styled.nav([
-  tw`sticky top-0 w-full h-16 bg-background border-b border-black z-[100]`,
+  tw`sticky top-0 w-full h-16 bg-gray-950 border-b border-black z-[100]`,
 ])
 
 export const StyledNavList = styled.ul([
-  tw`flex items-center justify-center h-full list-none text-primary font-display`,
+  tw`flex items-center justify-center h-full list-none text-primary-300 font-display`,
 ])
 
 type StyledNavListLinkProps = {

@@ -20,7 +20,7 @@ const customStyles = css([
   globalStyles as any,
   {
     '#__next': tw`min-h-[calc(100vh-3rem)] flex flex-col`,
-    body: tw`font-text bg-background pb-12`,
+    body: tw`font-text bg-gray-950 pb-12`,
     h1: tw`text-4xl md:text-6xl`,
     h2: tw`text-3xl`,
     h3: tw`text-xl`,

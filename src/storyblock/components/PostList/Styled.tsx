@@ -4,11 +4,9 @@ import styled from '@emotion/styled'
 import tw from 'twin.macro'
 
 export const StyledPostListItem = styled.div`
-  border: 1px solid #000;
+  ${tw`border border-black flex cursor-pointer mb-6 bg-gray-900`}
   height: 173px;
   width: 100%;
-  display: flex;
-  cursor: pointer;
   margin-bottom: 10px;
 
   @media (max-width: 500px) {
