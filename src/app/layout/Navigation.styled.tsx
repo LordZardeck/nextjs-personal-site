@@ -1,26 +1,44 @@
-'use client'
-
-import styled from '@emotion/styled'
-import tw from 'twin.macro'
 import Link from 'next/link'
+import { styled } from '@system/jsx'
 
-export const StyledNavigation = styled.nav([
-  tw`sticky top-0 w-full h-16 bg-gray-950 border-b border-black z-[100]`,
-])
+export const StyledNavigation = styled('nav', {
+  base: {
+    position: 'sticky',
+    top: 0,
+    width: 'full',
+    height: 16,
+    backgroundColor: 'background',
+    borderBottom: '1px solid',
+    borderColor: 'black',
+    zIndex: 100,
+  },
+})
 
-export const StyledNavList = styled.ul([
-  tw`flex items-center justify-center h-full list-none text-primary-300 font-display`,
-])
-
-type StyledNavListLinkProps = {
-  active?: boolean
-}
+export const StyledNavList = styled('ul', {
+  base: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100%',
+    listStyle: 'none',
+    color: 'primary.300',
+    fontFamily: 'display',
+    fontWeight: 500,
+  },
+})
 
 export const StyledNavListLink = styled(Link, {
-  shouldForwardProp(prop) {
-    return prop !== 'active'
+  base: {
+    fontSize: '1.125rem',
+    textAlign: 'center',
+    padding: '0 1.25rem',
+    textDecoration: 'none',
   },
-})<StyledNavListLinkProps>(({ active = false }) => [
-  tw`text-lg text-center px-5 no-underline`,
-  active && tw`underline`,
-])
+  variants: {
+    active: {
+      true: {
+        textDecoration: 'underline',
+      },
+    },
+  },
+})

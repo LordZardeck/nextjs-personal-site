@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { BlokProps, Component } from '@/storyblock/components/types'
-import { PostListItem } from './PostListItem'
+import { PostListItem } from './components'
 import { loader, Post } from './loader'
 
 export function usePostList(

@@ -1,13 +1,22 @@
-'use client'
+import { styled } from '@system/jsx'
 
-import styled from '@emotion/styled'
-import tw from 'twin.macro'
-
-type StyledSectionProps = {
-  noPadding?: boolean
-}
-
-export const CenteredContent = styled.div<StyledSectionProps>([
-  tw`py-5 px-5 max-w-4xl my-0 mx-auto w-full md:py-12`,
-  ({ noPadding }) => noPadding && tw`py-0`,
-])
+export const CenteredContent = styled('div', {
+  base: {
+    paddingY: {
+      base: 5,
+      md: 12,
+    },
+    paddingX: 5,
+    maxWidth: '4xl',
+    marginY: 0,
+    marginX: 'auto',
+    width: 'full',
+  },
+  variants: {
+    noPadding: {
+      true: {
+        paddingY: 0,
+      },
+    },
+  },
+})

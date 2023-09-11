@@ -78,6 +78,7 @@ export default async function StoryblokPage({ params }: HomeProps) {
 
     return <StoryblockStory story={story} />
   } catch (e) {
+    console.log('storyblok not found', e)
     return notFound()
   }
 }

@@ -1,6 +1,8 @@
-'use client'
+import { styled } from '@system/jsx'
 
-import tw from 'twin.macro'
-import styled from '@emotion/styled'
-
-export const StyledBody = styled.body([tw`bg-gray-950 pb-12`])
+export const StyledBody = styled('body', {
+  base: {
+    backgroundColor: 'gray.950',
+    paddingBottom: 12,
+  },
+})

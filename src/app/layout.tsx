@@ -1,12 +1,13 @@
+import '../styles/global.css'
+import { StyledBody } from '@/app/layout/layout.styled'
 import StoryblokProvider from '@/storyblock/Provider'
 import { apiPlugin, storyblokInit } from '@storyblok/react/rsc'
 import { fetchPageSettings } from '@/storyblock/api'
 import { Navigation } from '@/app/layout/Navigation'
-import GlobalStyles from '@/app/layout/GlobalStyles'
+import Script from 'next/script'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
-import Script from 'next/script'
-import React from 'react'
+import { ibmPlexSans, ibmPlexMono } from '@/styles/fonts'
 
 config.autoAddCss = false
 
@@ -29,9 +30,15 @@ export default async function RootLayout({
   const pageSettings = await fetchPageSettings()
 
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={[
+        ibmPlexSans.className,
+        ibmPlexSans.variable,
+        ibmPlexMono.variable,
+      ].join(' ')}
+    >
       <head>
-        <GlobalStyles />
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-3C48B6PE0R" />
         <Script id="google-analytics">{`
           window.dataLayer = window.dataLayer || [];
@@ -42,13 +49,14 @@ export default async function RootLayout({
         `}</Script>
       </head>
       <StoryblokProvider>
-        <body>
+        <StyledBody>
           <Navigation links={pageSettings.main_navigation ?? []} />
           {children}
-        </body>
+        </StyledBody>
       </StoryblokProvider>
     </html>
   )
 }
 
-export const dynamicParams = process.env.NEXT_PUBLIC_STORYBLOK_VERSION === 'draft'
+export const dynamicParams =
+  process.env.NEXT_PUBLIC_STORYBLOK_VERSION === 'draft'

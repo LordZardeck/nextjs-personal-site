@@ -1,8 +1,12 @@
-'use client'
+import { styled } from '@system/jsx'
 
-import styled from '@emotion/styled'
-import tw from 'twin.macro'
-
-export const StyledMain = styled.main([
-  tw`flex min-h-screen flex-col items-center justify-between py-10`,
-])
+export const StyledMain = styled('main', {
+  base: {
+    display: 'flex',
+    minHeight: '100vh',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingTop: '2.5rem',
+  },
+})

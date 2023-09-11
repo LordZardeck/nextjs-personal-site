@@ -2,7 +2,7 @@ import { storyblokEditable } from '@storyblok/react/rsc'
 import { BlokProps, Component } from '@/storyblock/components/types'
 import { ChildComponents } from '@/storyblock/components/ChildComponents'
 import { CenteredContent } from '@/components'
-import { StyledSectionHeader } from '@/storyblock/components/CenteredSectionContent/Styled'
+import { StyledSectionHeader } from './Styled'
 
 type CenteredSectionBlok = Component<
   {

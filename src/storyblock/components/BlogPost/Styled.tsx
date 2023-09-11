@@ -1,11 +1,13 @@
-import styled from '@emotion/styled'
+import { styled } from '@system/jsx'
 
-export const StyledArticleTitle = styled.h1`
-  color: #f5d669;
-  text-align: center;
-  max-width: 1024px;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 20px;
-`
+export const StyledArticleTitle = styled('h1', {
+  base: {
+    color: '#f5d669',
+    textAlign: 'center',
+    maxWidth: '1024px',
+    width: '100%',
+    marginX: 'auto',
+    paddingX: '20px',
+    paddingY: '0',
+  },
+})

@@ -1,14 +1,9 @@
 import Link from 'next/link'
-import {
-  StyledDate,
-  StyledPostActions,
-  StyledPostDetails,
-  StyledPostListItem,
-} from './Styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faClock } from '@fortawesome/free-solid-svg-icons'
+import * as ListItem from './Styled'
 
-export type PostListItemProps = {
+type PostListItemProps = {
   title: string
   summary: string
   postedAt: string
@@ -27,28 +22,28 @@ export function PostListItem({
         href={'/' + slug}
         prefetch={process.env.NEXT_PUBLIC_STORYBLOK_VERSION !== 'draft'}
       >
-        <StyledPostListItem>
-          <StyledPostDetails>
+        <ListItem.Item>
+          <ListItem.Details>
             <h3>{title}</h3>
             <p>
               {summary.slice(0, 100)}
               {summary.length > 100 ? '...' : ''}
             </p>
-          </StyledPostDetails>
-          <StyledPostActions>
+          </ListItem.Details>
+          <ListItem.Actions>
             <div className="navigate">
               <FontAwesomeIcon icon={faArrowRight} />
             </div>
-            <StyledDate>
+            <ListItem.Date>
               <FontAwesomeIcon icon={faClock} />
               {new Date(postedAt).toLocaleString('en-US', {
                 day: 'numeric',
                 month: 'short',
                 year: 'numeric',
               })}
-            </StyledDate>
-          </StyledPostActions>
-        </StyledPostListItem>
+            </ListItem.Date>
+          </ListItem.Actions>
+        </ListItem.Item>
       </Link>
     </>
   )

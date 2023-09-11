@@ -1,6 +1,5 @@
+import '../styles/global.css'
 import { Navigation } from '@/app/layout/Navigation'
-import Head from 'next/head'
-import GlobalStyles from '@/app/layout/GlobalStyles'
 import { AppProps } from 'next/app'
 import { apiPlugin, storyblokInit } from '@storyblok/react/rsc'
 import React from 'react'
@@ -14,9 +13,6 @@ storyblokInit({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Head>
-        <GlobalStyles />
-      </Head>
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-3C48B6PE0R" />
       <Script id="google-analytics">{`
           window.dataLayer = window.dataLayer || [];
